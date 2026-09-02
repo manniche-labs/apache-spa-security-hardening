@@ -2,9 +2,9 @@
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability in this template, please open a private security advisory.
+If you find a security issue in the Apache config template, open a private advisory.
 
-We aim to respond within 48 hours.
+We respond within 48 hours.
 
 ---
 *manniche labs*
