@@ -9,6 +9,7 @@
   [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
   [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/manniche-labs/apache-spa-security-hardening/pulls)
   [![Security Standard](https://img.shields.io/badge/Security-OWASP_A+-blueviolet.svg)](https://owasp.org)
+  [![Project Views](https://komarev.com/ghpvc/?username=manniche-labs-apache-spa-security-hardening&color=2563eb&style=flat-square&label=PROJECT+VIEWS)](https://github.com/manniche-labs/apache-spa-security-hardening)
   [![Studio](https://img.shields.io/badge/Maintained_by-manniche_labs-0f0f0f?logo=github&logoColor=white)](https://github.com/manniche-labs)
 
   <br />
