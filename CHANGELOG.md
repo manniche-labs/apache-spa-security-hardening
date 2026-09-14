@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased]
+
+### Fixed
+- Every request returned **500 Internal Server Error**: line 25 used `RewriteMatch`, which is not an Apache directive, so Apache rejected the whole `.htaccess`. The rule now uses `mod_rewrite` like the rest of the file, so it does not depend on `mod_alias` being enabled.
+- `/.well-known/` was blocked by the hidden-files rule, so Let's Encrypt (ACME HTTP-01) could not renew certificates. Only `/.well-known/acme-challenge/<token>` is now allowed; everything else under hidden paths, including `/.well-known/.git/`, is still blocked.
+
 ## [1.0.0] - 2026-09-02
 
 ### Added

@@ -18,11 +18,14 @@
     RewriteCond %{HTTP:X-Forwarded-Proto} !https
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+    # Block access to sensitive backup/database/log files
+    RewriteRule \.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist|env)$ - [F,NC]
+
+    # Let's Encrypt must reach its challenge files, or certificates cannot renew
+    RewriteRule ^\.well-known/acme-challenge/[A-Za-z0-9_-]+$ - [L]
+
     # Block access to hidden files and directories (e.g. .git, .env, .htaccess)
     RewriteRule (^\.|/\.) - [F]
-
-    # Block access to sensitive backup/database/log files
-    RewriteMatch 403 (?i)\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist|env)$
 </IfModule>
 
 # ------------------------------------------------------------------------------
