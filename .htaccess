@@ -19,10 +19,14 @@
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
     # Block access to hidden files and directories (e.g. .git, .env, .htaccess)
+    # but keep /.well-known/ reachable, or Let's Encrypt cannot renew certificates
+    RewriteRule ^\.well-known/ - [L]
     RewriteRule (^\.|/\.) - [F]
+</IfModule>
 
-    # Block access to sensitive backup/database/log files
-    RewriteMatch 403 (?i)\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist|env)$
+# Block access to sensitive backup/database/log files
+<IfModule mod_alias.c>
+    RedirectMatch 403 (?i)\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist|env)$
 </IfModule>
 
 # ------------------------------------------------------------------------------
