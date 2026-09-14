@@ -29,7 +29,7 @@
 </IfModule>
 
 # ------------------------------------------------------------------------------
-# 2. HTTP SECURITY HEADERS (OWASP / MOZILLA OBSERVATORY A+ COMPLIANT)
+# 2. HTTP SECURITY HEADERS (OWASP SECURE HEADERS)
 # ------------------------------------------------------------------------------
 <IfModule mod_headers.c>
     # Content Security Policy (CSP)
@@ -55,9 +55,9 @@
     # Permissions Policy (disable intrusive browser APIs by default)
     Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
 
-    # Remove server banner
+    # Remove the X-Powered-By banner. (The Server header cannot be removed from
+    # .htaccess; set ServerTokens Prod in the main server config instead.)
     Header unset X-Powered-By
-    Header unset Server
 </IfModule>
 
 # ------------------------------------------------------------------------------

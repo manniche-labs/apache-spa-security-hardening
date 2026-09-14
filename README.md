@@ -10,7 +10,6 @@
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
   [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/manniche-labs/apache-spa-security-hardening/pulls)
-  [![Security Standard](https://img.shields.io/badge/Security-OWASP_A+-blueviolet.svg)](https://owasp.org)
   [![Project Views](https://komarev.com/ghpvc/?username=manniche-apache&color=2563eb&style=flat-square&label=PROJECT+VIEWS)](https://github.com/manniche-labs/apache-spa-security-hardening)
   [![Studio](https://img.shields.io/badge/Maintained_by-manniche_labs-0f0f0f?logo=github&logoColor=white)](https://github.com/manniche-labs)
 
@@ -29,10 +28,10 @@ Most modern web frameworks (React, Vite, Next.js export, Vue) assume you deploy 
 * ❌ **Broken client-side routing** on page reload (404 errors)
 * ❌ **F-grade security on Mozilla Observatory** due to missing headers
 * ❌ **CORS errors** on web fonts and static SVGs
-* ❌ **Slow page load times** without gzip/brotli compression
+* ❌ **Slow page load times** without gzip compression
 * ❌ **Vulnerable exposed files** (`.env`, `.git`, `.sql` leaks)
 
-This repository provides an **OWASP-grade, production-hardened `.htaccess`** ready for immediate deployment.
+This repository provides a **hardened `.htaccess`** following OWASP secure-headers guidance. Review the CSP for your own app before deploying.
 
 ---
 
@@ -78,12 +77,13 @@ bash verify-security-headers.sh https://yourdomain.com
 
 ---
 
-## 🧪 Tested Environments
+## 🧪 Requirements
 
-* ✅ **Simply.com** Cloud Hosting (Apache 2.4 + PHP 8)
-* ✅ **one.com** Apache Infrastructure
-* ✅ **cPanel / WHM** shared & dedicated servers
-* ✅ **Ubuntu / Debian / CentOS** with `mod_rewrite` and `mod_headers`
+* Apache 2.4 with `AllowOverride All` (or at least `FileInfo`, `Indexes`, `Options`)
+* `mod_rewrite` and `mod_headers`; `mod_deflate` and `mod_expires` are used when available
+* Verified on Apache 2.4.66: pages, SPA fallback, blocked dotfiles/backups, ACME challenges and all 7 security headers
+
+**Note on the CSP:** `script-src` allows `'unsafe-inline'` so common SPA builds and GA4 snippets work out of the box. Mozilla Observatory scores this lower than A+; remove it and use hashes or nonces if your app allows.
 
 ---
 
