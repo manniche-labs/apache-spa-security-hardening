@@ -1,21 +1,20 @@
-<img src="https://raw.githubusercontent.com/manniche-labs/awesome-european-dev/main/.github/banner.svg" alt="" width="100%">
+<img src=".github/banner.svg" alt="" width="100%">
 
 <div align="center">
 
   # 🛡️ Apache SPA Security & CSP Hardening Template
 
-  **Turnkey, production-grade `.htaccess` hardening rules and Content Security Policy (CSP) for Single-Page Applications (React, Next.js, Vite, Vue).**
+  **A ready-to-edit `.htaccess` with security headers, a Content Security Policy (CSP), HTTPS, compression, caching and SPA routing for Single-Page Applications (React, Next.js, Vite, Vue) on Apache.**
 
   <br />
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
   [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/manniche-labs/apache-spa-security-hardening/pulls)
-  [![Project Views](https://komarev.com/ghpvc/?username=manniche-apache&color=2563eb&style=flat-square&label=PROJECT+VIEWS)](https://github.com/manniche-labs/apache-spa-security-hardening)
   [![Studio](https://img.shields.io/badge/Maintained_by-manniche_labs-0f0f0f?logo=github&logoColor=white)](https://github.com/manniche-labs)
 
   <br />
 
-  <sub>Crafted with precision by <b><a href="https://github.com/mikkelmanniche-dk">Mikkel Manniche</a></b> at <b><a href="https://github.com/manniche-labs">manniche labs</a></b> • <a href="https://mikkelmanniche.dk">mikkelmanniche.dk</a></sub>
+  <sub>Made by <b><a href="https://github.com/mikkelmanniche-dk">Mikkel Manniche</a></b> at <b><a href="https://github.com/manniche-labs">manniche labs</a></b> • <a href="https://mikkelmanniche.dk">mikkelmanniche.dk</a></sub>
 
 </div>
 
@@ -31,7 +30,10 @@ Most modern web frameworks (React, Vite, Next.js export, Vue) assume you deploy 
 * ❌ **Slow page load times** without gzip compression
 * ❌ **Vulnerable exposed files** (`.env`, `.git`, `.sql` leaks)
 
-This repository provides a **hardened `.htaccess`** following OWASP secure-headers guidance. Review the CSP for your own app before deploying.
+This repository provides a **hardened `.htaccess`** following OWASP secure-headers guidance.
+
+> [!IMPORTANT]
+> The CSP is an example. It allows Google Analytics 4, Google Fonts and Stripe. Edit `Content-Security-Policy` in `.htaccess` to match the services your app actually uses before deploying, or pages may break.
 
 ---
 
@@ -93,10 +95,8 @@ Issues, feature requests, and pull requests are warmly welcome! If you find this
 
 ---
 
-## 👨‍💻 Author & Maintainer
+## 👨‍💻 Maintainer
 
-* **Organization:** [manniche labs](https://github.com/manniche-labs)
-* **Lead Engineer:** [Mikkel Manniche](https://github.com/mikkelmanniche-dk)
-* **Official Website:** [mikkelmanniche.dk](https://mikkelmanniche.dk)
+[Mikkel Manniche](https://github.com/mikkelmanniche-dk) at [manniche labs](https://github.com/manniche-labs) · [mikkelmanniche.dk](https://mikkelmanniche.dk)
 
 License: [MIT](LICENSE)
